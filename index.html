@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f7f4ee" />
+  <meta name="description" content="Happy Birthday My Love - Thiệp sinh nhật phong cách kỷ niệm sang trọng" />
+  <title>Happy Birthday My Love 💖</title>
+
+  <!-- Favicon Heart -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Dynamic Falling Rose Petals & Golden Sparkles Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Màn Mở Đầu: Phong Bì Thiệp Mừng (Intro Curtain) -->
+  <div id="intro-curtain" class="curtain-overlay">
+    <div class="curtain-card">
+      <div class="wax-seal">💌</div>
+      <div class="curtain-subhead">Happy Birthday</div>
+      <h1 class="curtain-title">Thiệp Mừng Tuổi</h1>
+      <div class="ornament-line">
+        <span class="ornament-icon">❦</span>
+      </div>
+      <!-- <p class="curtain-desc">
+        Hôm nay là một ngày vô cùng đặc biệt. Chạm vào nút bên dưới để mở tấm thiệp và cùng nhìn lại những khoảnh khắc
+        ngọt ngào nhất của đôi mình nhé! ✨
+      </p> -->
+      <button id="btn-open-curtain" class="btn-wedding-gold">
+        <span>Mở Tấm Thiệp</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Trình Phát Nhạc Mini (Floating Disc) -->
+  <div class="music-dock">
+    <button id="music-toggle-btn" class="music-toggle-btn" title="Bật/Tắt nhạc nền">
+      <div id="music-disk" class="music-disk">
+        <div class="music-disk-center"></div>
+      </div>
+      <span id="music-label" class="music-label">Happy Birthday 🎵</span>
+      <div id="music-waves" class="music-waves" style="opacity: 0.3;">
+        <span class="wave-bar"></span>
+        <span class="wave-bar"></span>
+        <span class="wave-bar"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile-First App Wrapper Container -->
+  <main class="app-wrapper">
+
+    <!-- PHẦN 1: HERO SECTION -->
+    <section class="hero-wedding">
+      <div class="hero-monogram reveal">❦ HAPPY BIRTHDAY ❦</div>
+      <h1 class="hero-name lover-name reveal" style="--delay: 0.1s">Trần Thị Ngọc Ánh</h1>
+      <div class="hero-subtitle-script reveal" style="--delay: 0.15s">Happy Birthday My Love</div>
+
+      <div class="ornament-line reveal" style="--delay: 0.2s">
+        <span class="ornament-icon">❦</span>
+      </div>
+
+      <div class="reveal" style="--delay: 0.25s">
+        <div class="hero-date-badge">
+          <span>15</span>
+          <span>•</span>
+          <span>THÁNG 09</span>
+          <span>•</span>
+          <span>2026</span>
+        </div>
+      </div>
+
+      <div class="hero-quote-box reveal" style="--delay: 0.3s">
+        <p>
+          "Chúc em tuổi mới luôn vui vẻ, xinh đẹp và mọi điều may mắn sẽ đến với em, mong em sẽ luôn vui vẻ bên cạnh
+          anh để có thể đón thật nhiều sinh nhật cùng nhau nữa nhé. Cảm ơn ông trời đã mang em đến bên cạnh anh để xoa
+          tan đi muộn phiền của anh. Yêu em nhiều❣️"
+        </p>
+      </div>
+    </section>
+
+    <!-- PHẦN 2: THE BIRTHDAY GIRL (NHÂN VẬT CHÍNH) -->
+    <section class="section-padding">
+      <div class="section-header reveal">
+        <span class="section-subhead">The Birthday Star</span>
+        <h2 class="section-title">Cô Gái Tuổi Mới</h2>
+        <div class="ornament-line">
+          <span class="ornament-icon">❦</span>
+        </div>
+        <p class="section-desc">Nhân vật chính của ngày hôm nay</p>
+      </div>
+
+      <!-- Khung ảnh vòm cung cổ điển (Arch Frame phong cách cưới) -->
+      <div class="profile-arch-wrap reveal">
+        <img class="profile-arch-img" src="assets/images/1.2.jpg" alt="Cô gái tuổi mới" />
+      </div>
+
+      <div class="profile-info-card wedding-card reveal" style="--delay: 0.1s">
+        <h3 class="profile-name lover-name">Trần Thị Ngọc Ánh</h3>
+        <p class="profile-title-tag lover-nickname">Công Chúa Nhỏ của anh</p>
+
+        <div class="profile-details-grid">
+          <div class="detail-item">
+            <div class="detail-label">Cung Hoàng Đạo</div>
+            <div id="profile-zodiac" class="detail-val">Xử Nữ ♍</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Sở Thích</div>
+            <div id="profile-hobbies" class="detail-val">Trà sữa, dỗi, tồ tề</div>
+          </div>
+          <div class="detail-item" style="grid-column: span 2;">
+            <div class="detail-label">Điểm Đáng Yêu Nhất</div>
+            <div id="profile-trait" class="detail-val">Nụ cười siuuu đáng iuuuu</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẦN 3: LỊCH THÁNG SINH NHẬT CÓ TRÁI TIM (CALENDAR WIDGET) -->
+    <section class="section-padding" style="padding-top: 0;">
+      <div class="section-header reveal">
+        <span class="section-subhead">Special Moment</span>
+        <h2 class="section-title">Lịch Tháng Kỷ Niệm</h2>
+        <div class="ornament-line">
+          <span class="ornament-icon">❦</span>
+        </div>
+        <p class="section-desc">Ngày đặc biệt được khắc ghi trong tim</p>
+      </div>
+
+      <div class="calendar-widget-card reveal">
+        <div class="calendar-header">
+          <h3 id="calendar-month-name" class="calendar-month-name">Tháng 09 • 2026</h3>
+        </div>
+
+        <!-- Hàng thứ trong tuần -->
+        <div class="calendar-grid" style="margin-bottom: 8px;">
+          <div class="cal-day-name">T2</div>
+          <div class="cal-day-name">T3</div>
+          <div class="cal-day-name">T4</div>
+          <div class="cal-day-name">T5</div>
+          <div class="cal-day-name">T6</div>
+          <div class="cal-day-name">T7</div>
+          <div class="cal-day-name">CN</div>
+        </div>
+
+        <!-- Lưới ngày trong tháng (Render động từ JS, ngày sinh nhật có tim) -->
+        <div id="calendar-days-grid" class="calendar-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- KHUNG ẢNH NGHỆ THUẬT / PHOTOBOOTH CARD (NHƯ ẢNH MẪU) -->
+    <section class="section-padding" style="padding-top: 0; padding-bottom: 24px;">
+      <div class="section-header reveal">
+        <span class="section-subhead">Photobooth Frame</span>
+        <h2 class="section-title">Khoảnh Khắc Rạng Rỡ</h2>
+        <div class="ornament-line">
+          <span class="ornament-icon">❦</span>
+        </div>
+      </div>
+
+      <div class="wedding-art-card reveal">
+        <!-- 1. Ảnh lớn phía trên -->
+        <div class="art-card-main-img-box">
+          <img src="assets/images/1.4.jfif" alt="Khoảnh khắc hạnh phúc" onclick="openLightbox(this.src)" />
+        </div>
+
+        <!-- 2. Logo Monogram, Ngày & Tên ở giữa -->
+        <div class="art-card-middle-info">
+          <div class="art-card-monogram">
+            <span class="mono-char">N</span>
+            <span class="mono-char mono-overlap">A</span>
+          </div>
+          <div class="art-card-date-line">THE BIRTHDAY STAR | 15.09.2003</div>
+          <h3 class="art-card-names">Trần Thị Ngọc Ánh</h3>
+        </div>
+
+        <!-- 3. 3 ảnh nhỏ phong cách Photobooth phía dưới -->
+        <div class="art-card-trio-grid">
+          <div class="art-trio-item">
+            <img src="assets/images/1.5.jpg" alt="Moment 1" onclick="openLightbox(this.src)" />
+          </div>
+          <div class="art-trio-item">
+            <img src="assets/images/11.6.jpg" alt="Moment 2" onclick="openLightbox(this.src)" />
+          </div>
+          <div class="art-trio-item">
+            <img src="assets/images/1.7.jpg" alt="Moment 3" onclick="openLightbox(this.src)" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẦN: ẢNH KỶ NIỆM CHUNG (MỞ 6 ẢNH) -->
+    <section class="section-padding" style="padding-top: 0; padding-bottom: 24px;">
+      <div class="section-header reveal">
+        <span class="section-subhead">Memories Together</span>
+        <h2 class="section-title">Ảnh Kỷ Niệm Chung</h2>
+        <div class="ornament-line">
+          <span class="ornament-icon">❦</span>
+        </div>
+      </div>
+
+      <div class="common-memory-card reveal">
+        <!-- 1. Ảnh lớn đầy đủ phía trên -->
+        <div class="common-memory-photo-wrap" onclick="openMemoryModal()">
+          <div class="memory-photo-inner">
+            <img src="assets/images/2.2.jpg" alt="Ảnh Kỷ Niệm Chung" />
+            <div class="memory-photo-badge">
+              <span>📸 6 Ảnh Kỷ Niệm</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Khối chữ và lời nhắn phía dưới -->
+        <div class="common-memory-text-box">
+          <div class="botanical-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M12 22v-8m0 0c-2.5 0-5-1.5-5-4.5 0-2 1.5-3.5 3.5-3.5 1.5 0 2.5 1 2.5 2 0-1 1-2 2.5-2 2 0 3.5 1.5 3.5 3.5 0 3-2.5 4.5-5 4.5z">
+              </path>
+              <path d="M7 14c-1.5-1-2.5-2.5-2.5-4 0-1.5 1-2.5 2-2.5 1 0 1.8.8 2 1.5"></path>
+              <path d="M17 14c1.5-1 2.5-2.5 2.5-4 0-1.5-1-2.5-2-2.5-1 0-1.8.8-2 1.5"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="common-memory-subhead">CHÚNG MÌNH & KỶ NIỆM • 2026</div>
+            <p class="common-memory-quote">
+              "Mỗi khoảnh khắc bên em đều là một mảnh ghép dịu dàng và đẹp đẽ nhất. Cảm ơn em vì đã ở bên anh và cùng
+              anh tạo nên những kỉ niệm đẹp. Đôi khi em thông cảm cho anh với nhé, anh cũng là lần đầu thương một
+              người nhiều đến vậy nên có lúc hơi vụng về chứ anh không cố ý làm em buồn đâu..."
+            </p>
+          </div>
+          <div class="memory-click-hint" onclick="openMemoryModal()">
+            <span>Chạm để xem thêm</span>
+            <span class="hint-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PHẦN 4: PHOTO GALLERY (ALBUM ẢNH TẠP CHÍ) -->
+    <section class="section-padding" style="padding-top: 0;">
+      <div class="section-header reveal">
+        <span class="section-subhead">Moments</span>
+        <h2 class="section-title">Album Khoảnh Khắc</h2>
+        <div class="ornament-line">
+          <span class="ornament-icon">❦</span>
+        </div>
+      </div>
+
+      <div id="gallery-container" class="gallery-grid">
+        <!-- Render động từ CONFIG.gallery -->
+      </div>
+    </section>
+    <!-- PHẦN 5: THANK YOU & LỜI KẾT -->
+    <section class="thankyou-section">
+      <div class="thankyou-seal reveal">❦</div>
+      <div class="thankyou-title reveal" style="--delay: 0.1s">Thank You</div>
+      <p class="thankyou-text reveal" style="--delay: 0.15s">
+        "Chúc em một ngày sinh nhật thật ấm áp, vui vẻ và luôn hạnh phúc nhé!"
+      </p>
+
+      <div class="reveal" style="--delay: 0.2s">
+        <button id="btn-shower-hearts" class="btn-shower-hearts">
+          <span>Gửi Ngàn Trái Tim Chúc Mừng</span>
+          <span>💖</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL (XEM ẢNH PHÓNG TO) -->
+  <div id="photo-lightbox" class="lightbox-modal">
+    <div class="lightbox-content">
+      <button id="lightbox-close" class="lightbox-close-btn" aria-label="Đóng">&times;</button>
+      <div class="lightbox-img-box">
+        <img id="lightbox-img" src="" alt="Ảnh phóng to" />
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 6 ẢNH KỶ NIỆM CHUNG -->
+  <div id="memory-six-modal" class="memory-six-modal">
+    <div class="memory-six-content">
+      <button class="memory-six-close" onclick="closeMemoryModal()" aria-label="Đóng">&times;</button>
+      <div class="memory-six-header">
+        <h3 class="memory-six-title">Ảnh Kỷ Niệm Chung</h3>
+        <p class="memory-six-desc">6 khoảnh khắc ngọt ngào của đôi mình</p>
+      </div>
+
+      <div class="memory-six-grid">
+        <div class="memory-six-item">
+          <img src="assets/images/2.2.jpg" alt="Kỷ niệm 1" loading="lazy" />
+        </div>
+        <div class="memory-six-item">
+          <img src="assets/images/2.3.jpg" alt="Kỷ niệm 2" loading="lazy" />
+        </div>
+        <div class="memory-six-item">
+          <img src="assets/images/2.4.jpg" alt="Kỷ niệm 3" loading="lazy" />
+        </div>
+        <div class="memory-six-item">
+          <img src="assets/images/2.5.jpg" alt="Kỷ niệm 4" loading="lazy" />
+        </div>
+        <div class="memory-six-item">
+          <img src="assets/images/2.6.jpg" alt="Kỷ niệm 5" loading="lazy" />
+        </div>
+        <div class="memory-six-item">
+          <img src="assets/images/2.7.jpg" alt="Kỷ niệm 6" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/petals.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

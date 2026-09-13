@@ -1,0 +1,8 @@
+# System & IDE files
+.vscode/
+.idea/
+*.log
+scratch/
+.tempmediaStorage/
+.DS_Store
+Thumbs.db
